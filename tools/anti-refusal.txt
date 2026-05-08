@@ -1,0 +1,36 @@
+# Anti-refusal phrase list for logit_bias sidecar.
+#
+# Tokenize each line against your target model with from_phrases.py and apply
+# a moderate negative bias (-3 to -8 is a reasonable starting range). This
+# complements activation-level abliteration by providing a logit-level
+# fallback for refusal phrases that still survive direction ablation.
+#
+# Recommended pairing:
+#   --sidecar-vectors model.abl.gguf,model.anti-refusal.bias.gguf
+#
+# Notes:
+# - Tokens are model-specific; never share a .bias.gguf produced for one
+#   model family with another.
+# - Some of these phrases also appear in non-refusal contexts (e.g. "I'm" is
+#   ubiquitous). Keep biases moderate to avoid over-suppression.
+
+I'm sorry
+I am sorry
+I apologize
+I cannot
+I can't
+I am unable
+I'm unable
+I'm not able
+I'm not comfortable
+I am not comfortable
+As an AI
+As a large language model
+As an AI language model
+I don't think I should
+I won't be able
+That would be inappropriate
+I cannot provide
+I cannot fulfill
+I'm afraid I can't
+I have to decline
