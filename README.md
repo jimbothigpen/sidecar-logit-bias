@@ -63,8 +63,8 @@ prefixes) intended as a logit-level complement to activation-level
 abliteration.
 
 Both tools rely on `gguf-py` from the engine source tree (or a `pip install gguf`).
-Set `FRANKENTURBO2_DIR=/path/to/frankenturbo2` to point them at the engine
-clone if `import gguf` fails.
+Set `FRANKENTURBO2_DIR=/path/to/llama.cpp` to point them at the hub
+`jimbothigpen/llama.cpp` fork clone (the env-var name is legacy) if `import gguf` fails.
 
 ## On-disk schema
 
