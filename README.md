@@ -1,6 +1,6 @@
 # sidecar-logit-bias
 
-Out-of-tree sidecar handler plugin for [frankenturbo2](https://github.com/jimbothigpen/frankenturbo2):
+Out-of-tree sidecar handler plugin for the hub [`llama.cpp` fork](https://github.com/jimbothigpen/llama.cpp) (`jimbothigpen/llama.cpp`, 'llama-yggdrasil'):
 token-level additive logit bias applied after the LM head, just before the
 user reads logits.
 
@@ -12,11 +12,11 @@ etc.) — it complements activation-level steering like abliteration.
 
 ## Build
 
-Requires an installed frankenturbo2 engine (the `--sidecar-load-plugin`
-loader landed in commit `5ba111253e`).
+Requires the hub `llama.cpp` fork built + installed with the sidecar-plugin ABI
+(the `--sidecar-load-plugin` loader landed in commit `5ba111253e`).
 
 ```bash
-cmake -S . -B build -DLLAMA_INSTALL_PREFIX=/opt/llama-frankenturbo2-vulkan
+cmake -S . -B build -DLLAMA_INSTALL_PREFIX=/opt/llama-yggdrasil-vulkan
 cmake --build build
 ```
 
@@ -25,8 +25,8 @@ Output: `build/libsidecar_logit_bias.so`.
 ## Use
 
 ```bash
-LD_LIBRARY_PATH=/opt/llama-frankenturbo2-vulkan/lib \
-/opt/llama-frankenturbo2-vulkan/bin/llama-cli \
+LD_LIBRARY_PATH=/opt/llama-yggdrasil-vulkan/lib \
+/opt/llama-yggdrasil-vulkan/bin/llama-cli \
   --sidecar-load-plugin /path/to/libsidecar_logit_bias.so \
   --sidecar-vectors /path/to/your.bias.gguf \
   -m model.gguf -p "..."
