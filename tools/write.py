@@ -42,12 +42,12 @@ def main() -> int:
 
     # Resolve gguf-py: prefer an installed `gguf` package; otherwise fall back
     # to the engine sibling clone at FRANKENTURBO2_DIR (env var) or
-    # /usr/src/llama-forks/frankenturbo2/gguf-py if set.
+    # /mnt/cephfs/0/Container/systems/ai00/users/builduser/projects/frankenturbo2/src/jimbothigpen/frankenturbo2/gguf-py if set.
     try:
         from gguf import GGUFWriter
     except ImportError:
         import os
-        engine = os.environ.get("FRANKENTURBO2_DIR", "/usr/src/llama-forks/frankenturbo2")
+        engine = os.environ.get("FRANKENTURBO2_DIR", "/mnt/cephfs/0/Container/systems/ai00/users/builduser/projects/frankenturbo2/src/jimbothigpen/frankenturbo2")
         sys.path.insert(0, f"{engine}/gguf-py")
         from gguf import GGUFWriter
 

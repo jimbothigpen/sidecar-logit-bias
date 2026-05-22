@@ -120,7 +120,7 @@ def main() -> int:
     try:
         from gguf import GGUFWriter
     except ImportError:
-        engine = os.environ.get("FRANKENTURBO2_DIR", "/usr/src/llama-forks/frankenturbo2")
+        engine = os.environ.get("FRANKENTURBO2_DIR", "/mnt/cephfs/0/Container/systems/ai00/users/builduser/projects/frankenturbo2/src/jimbothigpen/frankenturbo2")
         sys.path.insert(0, f"{engine}/gguf-py")
         from gguf import GGUFWriter
 
